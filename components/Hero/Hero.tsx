@@ -14,17 +14,17 @@ import {
 } from "./HeroStyle";
 
 const Hero = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpened, setIsOpened] = useState<boolean>(false); 
 
   const toggle = () => {
-    setIsOpen(!isOpen);
-    console.log(isOpen);
+    setIsOpened(!isOpened);
+    console.log(isOpened);
   };
-  const bgImage = ImgBg.src;
+  // const bgImage = ImgBg.src;
   return (
-    <HeroContainer backgroundImage={bgImage}>
+    <HeroContainer >
       <Navbar toggle={toggle} />
-      <Sidebar isOpen={isOpen} toggle={toggle} />
+      <Sidebar isOpen={isOpened} toggle={toggle} />
       <HeroContent>
         <HeroItems>
           <HeroH1>Greatest Eats Ever</HeroH1>

@@ -1,26 +1,41 @@
 "use client"
 import styled from "styled-components";
+
+
 import { FaTimes } from "react-icons/fa";
 
-interface SidebarProps {
-    isOpen: boolean;
-  }
-export const SidebarContainer = styled.aside<SidebarProps>`
-  position: fixed;
-  z-index: 999;
-  width: 350px;
-  height: 100%;
-  background: #ffc500;
-  display: grid;
-  align-items: center;
-  top: 0;
-  transition: 0.3s ease-in-out;
-  right: ${({ isOpen }: { isOpen: boolean }) => (isOpen ? "0" : "-1000px")};
+import isPropValid from "@emotion/is-prop-valid"; // Import isPropValid from emotion
 
-  @media screen and (max-width: 400px) {
-    width: 100%;
-  }
-`;
+interface SidebarContainerProps {
+  isOpen: boolean;
+}
+
+export const SidebarContainer = styled.div
+  .withConfig({
+    shouldForwardProp: (prop, validate) => isPropValid(prop),
+  })
+
+  .attrs<SidebarContainerProps>((props) => ({
+    style: {
+      right: props.isOpen ? "0" : "-1000px",
+    },
+  }))<{ isOpen: boolean }>`
+    position: fixed;
+    z-index: 999;
+    width: 350px;
+    height: 100%;
+    background: #ffc500;
+    display: grid;
+    align-items: center;
+    top: 0;
+    transition: 0.3s ease-in-out;
+
+    @media screen and (max-width: 400px) {
+      width: 100%;
+    }
+  `;
+  
+  
 export const Icon = styled.div`
   position: absolute;
   top: 1.2rem;

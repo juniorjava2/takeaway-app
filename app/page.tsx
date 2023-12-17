@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Hero, Products} from '@/components'
+import { Hero, Products, Feature} from '@/components'
 import { productData, productDataTwo } from "../constants/constants";
 
 
@@ -18,6 +18,7 @@ export default function Home() {
     <main>
       <Hero/>
       <Products heading="Choose your favourite food!" data={productDataWithUrls} />
+      <Feature/>
       <Products heading="Sweep your Throught!" data={productDataTwoWithUrls} />
     </main>
   )

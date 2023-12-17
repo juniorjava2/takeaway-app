@@ -5,10 +5,10 @@ import ImgBg from "../../public/images/grilledchicken.jpg";
 interface HeroContainerProps {
     backgroundImage: string;
   }
-  
-export const HeroContainer = styled.div<HeroContainerProps>`
+  //url(${({ backgroundImage }) => backgroundImage});
+export const HeroContainer = styled.div`
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
-  url(${({ backgroundImage }) => backgroundImage});
+  url(${ImgBg.src});
 
   height: 100vh;
   background-position: center;
