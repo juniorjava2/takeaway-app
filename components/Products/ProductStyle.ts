@@ -1,4 +1,5 @@
-import styled from "styled-components";
+"use client"
+import styled from "@emotion/styled";
 
 export const ProductsContainer = styled.div`
   min-height: 100vh;

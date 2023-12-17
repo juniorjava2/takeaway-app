@@ -1,4 +1,6 @@
-import styled from "styled-components";
+"use client"
+import styled from "@emotion/styled";
+
 import FeaturePic from "../../public/images/eggfries.jpg";
 
 export const FeatureContainer = styled.div`

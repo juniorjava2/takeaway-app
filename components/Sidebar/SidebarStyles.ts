@@ -1,5 +1,6 @@
 "use client"
-import styled from "styled-components";
+import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
 
 import { FaTimes } from "react-icons/fa";
@@ -10,16 +11,8 @@ interface SidebarContainerProps {
   isOpen: boolean;
 }
 
-export const SidebarContainer = styled.div
-  .withConfig({
-    shouldForwardProp: (prop, validate) => isPropValid(prop),
-  })
-
-  .attrs<SidebarContainerProps>((props) => ({
-    style: {
-      right: props.isOpen ? "0" : "-1000px",
-    },
-  }))<{ isOpen: boolean }>`
+export const SidebarContainer = styled.div<SidebarContainerProps>(
+  ({ isOpen }) => css`
     position: fixed;
     z-index: 999;
     width: 350px;
@@ -33,9 +26,11 @@ export const SidebarContainer = styled.div
     @media screen and (max-width: 400px) {
       width: 100%;
     }
-  `;
-  
-  
+
+    right: ${isOpen ? "0" : "-1000px"};
+  `
+);  
+
 export const Icon = styled.div`
   position: absolute;
   top: 1.2rem;
